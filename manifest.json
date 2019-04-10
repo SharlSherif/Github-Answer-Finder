@@ -1,0 +1,25 @@
+{
+    "name": "Getting Started Example",
+    "version": "1.0",
+    "description": "Build an Extension!",
+    "manifest_version": 2,
+    "permissions":[
+        "background",
+        "tabs"
+    ],
+    "background" : {
+        "scripts": ["/js/main.js"],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": ["/libs/randomColors.js", "/js/main.js"]
+        }
+    ],
+    "browser_action": {
+        "default_popup": "index.html"
+    }
+}
