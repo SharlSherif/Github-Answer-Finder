@@ -1,22 +1,30 @@
 {
-    "name": "Getting Started Example",
+    "name": "Find Github Answers",
     "version": "1.0",
-    "description": "Build an Extension!",
+    "description": "Find possible Github answers instantly based on their vote count",
     "manifest_version": 2,
-    "permissions":[
+    "permissions": [
         "background",
-        "tabs"
+        "activeTab",
+        "webNavigation",
+        "tabs",
+        "notifications",
+        "http://*/",
+        "https://*/"
     ],
-    "background" : {
-        "scripts": ["/js/main.js"],
-        "persistent": false
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
     },
     "content_scripts": [
         {
             "matches": [
-                "<all_urls>"
+                "*://github.com/*/*/issues/*"
             ],
-            "js": ["/libs/randomColors.js", "/js/main.js"]
+            "js": [
+                "main.js"
+            ]
         }
     ],
     "browser_action": {
